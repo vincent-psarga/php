@@ -42,7 +42,10 @@ before_script:
 
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use
-script: phpunit --configuration phpunit_$DB.xml --coverage-text
+script: phpunit --configuration phpunit_$DB.xml --coverage-text --log-junit output.xml
+
+after_script:
+  - cat output.xml
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
